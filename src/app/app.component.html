@@ -1,8 +1,14 @@
 <h1>Disciplinas</h1>
-<hr>
-<ul>
-  <li *ngFor="let disciplina of disciplinas" (click)="selecionar(disciplina)">
-      <p [class.selecionado]="selecionado == disciplina">{{disciplina.nome}}</p>
-      <p *ngIf="selecionado == disciplina">{{disciplina.descricao}}</p>
-  </li>
-</ul>
+
+<table>
+  <tr *ngFor="let disciplina of disciplinas">
+    <td><b>{{disciplina.nome}}</b></td>
+    <td [class.selecionado]="selecionado == disciplina"> 
+      <input type="submit" value="Detalhes" (click)="selecionar(disciplina)">
+    </td>
+  </tr>
+</table>
+<span  *ngFor="let disciplina of disciplinas">
+<h2 *ngIf="selecionado == disciplina">{{disciplina.nome}}</h2>
+<p *ngIf="selecionado == disciplina">{{disciplina.descricao}}</p>
+</span>
