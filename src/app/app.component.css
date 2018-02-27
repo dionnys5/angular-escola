@@ -14,3 +14,22 @@ li p:nth-child(1):hover {
 li p:nth-child(2) {
     font-size: 10pt;
 }
+
+.button {
+    margin: 0 30px;
+}
+td {
+    padding: 10px 0;
+    text-align: center;
+}
+
+h1, h2 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card {
+    max-width: 50%;
+    padding: 10px;
+    border-right:3px solid rgba(128, 128, 128, 0.438);
+    border-bottom:1px solid rgba(128, 128, 128, 0.438);
+}
