@@ -19,7 +19,7 @@ li p:nth-child(2) {
     margin: 0 30px;
 }
 td {
-    padding: 10px 0;
+    padding: 5px 0;
     text-align: center;
 }
 
@@ -32,4 +32,6 @@ h1, h2 {
     padding: 10px;
     border-right:3px solid rgba(128, 128, 128, 0.438);
     border-bottom:1px solid rgba(128, 128, 128, 0.438);
+    border-top:1px solid rgba(128, 128, 128, 0.438);
+    border-left:1px solid rgba(128, 128, 128, 0.438);
 }

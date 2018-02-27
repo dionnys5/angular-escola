@@ -2,6 +2,7 @@
 <hr>
 <table style="border: 1px;">
   <tr *ngFor="let disciplina of disciplinas">
+    <td><b>{{disciplina.cod}}</b></td>
     <td><b>{{disciplina.nome}}</b></td>
     <td [class.selecionado]="selecionado == disciplina"> 
       <input class="button" type="submit" value="Detalhes" (click)="selecionar(disciplina)">
@@ -10,7 +11,8 @@
 </table>
 <div *ngFor="let disciplina of disciplinas" >
     <div *ngIf="selecionado == disciplina" class="card">
-        <h2 *ngIf="selecionado == disciplina">{{disciplina.nome}}</h2>
-        <p *ngIf="selecionado == disciplina">{{disciplina.descricao}}</p>
+        <h2>{{disciplina.nome}}</h2>
+        <p><strong>Professor:</strong> {{disciplina.professor.nome}}</p>
+        <p><strong>Descrição: </strong> {{disciplina.descricao}}</p>
     </div>
 </div>
