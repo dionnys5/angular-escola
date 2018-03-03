@@ -18,9 +18,22 @@ li p:nth-child(2) {
 .button {
     margin: 0 30px;
 }
-td {
-    padding: 5px 0;
+p{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 300;
+}
+
+td, th {
+    padding: 5px 40px;
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+td {
+    font-weight: 300;
+}
+
+.cabecalho {
+    border: 1px solid black;
 }
 
 h1, h2 {
@@ -29,9 +42,18 @@ h1, h2 {
 
 .card {
     max-width: 50%;
-    padding: 10px;
+    padding: 20px;
     border-right:3px solid rgba(128, 128, 128, 0.438);
     border-bottom:1px solid rgba(128, 128, 128, 0.438);
     border-top:1px solid rgba(128, 128, 128, 0.438);
     border-left:1px solid rgba(128, 128, 128, 0.438);
+}
+
+.button {
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: rgba(185, 182, 182, 0.719);
 }
