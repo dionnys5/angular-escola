@@ -53,12 +53,12 @@ h1, h2 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     border-radius: 5px;
     padding: 5px 10px;;
-    background-color: blueviolet;
+    background-color: darkcyan;
     color: aliceblue;
 }
 
 .button:hover {
-    background-color: rgba(163, 135, 189, 0.575);
+    background-color:rgb(177, 176, 176);
     color: black;
 }
 
