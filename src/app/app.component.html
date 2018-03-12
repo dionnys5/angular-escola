@@ -1,20 +1,31 @@
-<h1>Disciplinas</h1>
-<hr>
-<ul>
-    <li *ngFor="let disciplina of disciplinas">
-        {{disciplina.nome}}
-        <button (click)="excluir(disciplina)">
-            Excluir
-        </button>
-        <button (click)="editar(disciplina)">
-            Editar
-        </button>
-    </li>
-</ul>
-
+<div class="container">
+<div>
+<h1 id="ftitle">Disciplinas</h1>
+<button (click)="insert()" class="button fa fa-plus" id="insert"> Incluir</button>
+</div>
+<table>
+  <tr>
+    <th>Código</th>
+    <th>Nome</th>
+    <th>Opções</th>
+  </tr>
+  <tr *ngFor="let disciplina of disciplinas">
+    <td>{{disciplina.cod}}</td>
+    <td>{{disciplina.nome}}</td>
+    <td [class.selecionado]="selecionado"> 
+      <button class="button fa fa-edit" id="edit" (click)="editar(disciplina)">  Editar</button>
+      <button class="button fa fa-trash"  id="delete"  (click)="excluir(disciplina)">  Excluir</button>
+    </td>
+  </tr>
+</table>
+<div *ngIf="incluir != null" class="cadastrar formulario">
 <h2>Cadastrar</h2>
 <p>Use este formulário para cadastrar ou editar uma disciplina.</p>
 <form #cadastro="ngForm" (submit)="salvar()">
+    <div>
+        <label for="cod">Código</label><br>
+        <input type="text" id="cod" name="cod" [(ngModel)]="cod" disabled>
+    </div>
     <div>
         <label for="nome">Nome</label><br>
         <input type="text" id="nome" name="nome" [(ngModel)]="nome" required>
@@ -22,8 +33,10 @@
     <div>
         <label for="descricao">Descrição</label><br>
         <textarea id="descricao" name="descricao" [(ngModel)]="descricao"
-                  cols="70" rows="5"></textarea>
+                  cols="60" rows="7"></textarea>
     </div>
     <button type="submit" [disabled]="!cadastro.valid">Salvar</button>
     <button type="reset" (click)="cancelar()">Cancelar</button>
 </form>
+</div>
+</div>

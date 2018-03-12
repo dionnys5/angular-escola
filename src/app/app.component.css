@@ -1,0 +1,102 @@
+.selecionado {
+    font-weight: bold;
+}
+
+li p:nth-child(1) {
+    cursor: pointer;
+    font-size: 12pt;
+}
+
+li p:nth-child(1):hover {
+    font-weight: bold;
+}
+
+li p:nth-child(2) {
+    font-size: 10pt;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+p{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 300;
+}
+
+td, th {
+    padding: 5px 30px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+    margin: 0 auto;
+    clear: both;
+    border-top: 1px solid brown;
+}
+
+h1, h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+#ftitle {
+    display: inline;
+    float: left;
+}
+.formulario {
+    max-width: 50%;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+    border-top: 1px solid brown;
+}
+
+.formulario p {
+    font-size: 1em;
+}
+
+.button {   
+    border-radius: 5px;
+    padding: 5px 10px;;
+    color:black;
+    margin: 0 30px;
+    font-size: 13px;
+}
+
+.button:hover {
+    color: white;
+}
+
+#edit {
+    background-color: rgb(185, 185, 52);
+    border: 1px solid black;
+}
+
+#delete {
+    background-color: tomato;
+    border: 1px solid black;
+}
+
+#insert {
+    background-color: springgreen;
+    float: right;
+    margin-top: 2em;
+    border: 1px solid black;
+
+}
+
+#insert:hover {
+    background-color: rgb(24, 141, 83);
+}
+
+#delete:hover {
+    background-color: rgb(141, 43, 26);
+}
+
+#edit:hover {
+    background-color: rgb(124, 124, 33);
+}
