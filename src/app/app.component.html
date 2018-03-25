@@ -1,42 +1,73 @@
 <div class="container">
-<div>
-<h1 id="ftitle">Disciplinas</h1>
-<button (click)="insert()" class="button fa fa-plus" id="insert"> Incluir</button>
-</div>
-<table>
-  <tr>
-    <th>Código</th>
-    <th>Nome</th>
-    <th>Opções</th>
-  </tr>
-  <tr *ngFor="let disciplina of disciplinas">
-    <td>{{disciplina.cod}}</td>
-    <td>{{disciplina.nome}}</td>
-    <td [class.selecionado]="selecionado"> 
-      <button class="button fa fa-edit" id="edit" (click)="editar(disciplina)">  Editar</button>
-      <button class="button fa fa-trash"  id="delete"  (click)="excluir(disciplina)">  Excluir</button>
-    </td>
-  </tr>
-</table>
-<div *ngIf="incluir != null" class="cadastrar formulario">
+    <div class="jumbotron">
+            <h1>DISCIPLINAS</h1>
+            <p class="text-muted">Lista e cadastro de disciplinas </p>
+    </div>
+    <div class="">
+        <table class="table table-hover">
+            <tr class="thead-light">
+                <th>Código</th>
+                <th>Nome</th>
+                <th width="300" class="text-center">Opções</th>
+            </tr>
+            <tr *ngFor="let disciplina of disciplinas">
+                <td>{{disciplina.cod}}</td>
+                <td>{{disciplina.nome}}</td>
+                <td [class.selecionado]="selecionado" class="text-center">
+                    <button type="button" class="btn btn-sm btn-primary" id="edit" (click)="editar(disciplina)"><i class="fa fa-edit"></i>Editar</button>
+                    <button type="button" class="btn btn-sm btn-danger"  id="delete"  (click)="excluir(disciplina)"><i class="fa fa-trash"></i> Excluir</button>
+                </td>
+            </tr>
+            <tr class="text-center">
+                <td></td>
+                <td></td>
+                <td>
+                    <button class="btn btn-outline-success"
+                            (click)="insert()"><i class="fa fa-plus"></i> Inserir</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="text-right">
+    </div>
+
+<div *ngIf="incluir != null">
 <h2>Cadastrar</h2>
 <p>Use este formulário para cadastrar ou editar uma disciplina.</p>
 <form #cadastro="ngForm" (submit)="salvar()">
-    <div>
+    <div class="form-group">
         <label for="cod">Código</label><br>
         <input type="text" id="cod" name="cod" [(ngModel)]="cod" disabled>
     </div>
-    <div>
+    <div class="form-group">
         <label for="nome">Nome</label><br>
-        <input type="text" id="nome" name="nome" [(ngModel)]="nome" required>
+        <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="nome" required>
     </div>
-    <div>
+    <div class="form-group">
         <label for="descricao">Descrição</label><br>
-        <textarea id="descricao" name="descricao" [(ngModel)]="descricao"
+        <textarea id="descricao" class="form-control" name="descricao" [(ngModel)]="descricao"
                   cols="60" rows="7"></textarea>
     </div>
-    <button type="submit" [disabled]="!cadastro.valid">Salvar</button>
-    <button type="reset" (click)="cancelar()">Cancelar</button>
+    <div class="text-right">
+        <button class="btn btn-success"
+                type="submit" [disabled]="!cadastro.valid">Salvar</button>
+        <button class="btn btn-secondary"
+                type="reset" (click)="cancelar()">Cancelar</button>
+    </div>
 </form>
 </div>
+    <div class="row">
+    </div>
+    <footer class="modal-footer row" style="margin-top: 50px">
+        <p class="col"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Aenean sem lacus, sollicitudin quis mattis at, volutpat ac neque.
+            Curabitur ligula eros, tincidunt at ante sit amet, semper lacinia leo.
+        </p>
+        <p class="col"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Aenean sem lacus, sollicitudin quis mattis at, volutpat ac neque.
+            Curabitur ligula eros, tincidunt at ante sit amet, semper lacinia leo.
+
+            <strong>Ceulp Ulbra ©</strong>
+        </p>
+    </footer>
 </div>
