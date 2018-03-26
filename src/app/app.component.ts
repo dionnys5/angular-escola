@@ -70,7 +70,7 @@ export class AppComponent {
     this.tipo = null;
     this.data = null; 
     this.status = null;
-    this.periodo = null;
+    this.periodo = this.periodos[0];
     this.descricao = null;
   }
 
