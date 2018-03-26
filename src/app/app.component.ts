@@ -9,19 +9,23 @@ import {Disciplina} from './disciplina.model';
 export class AppComponent {
   incluir = null;
   editando = null;
+  cod = null;
   nome = null;
+  tipo = null;
+  data = null;
+  status = null;
+  periodos = [1,2,3,4,5,6,7,8]
+  periodo = null;
   descricao = null;
-  cod = 6;
-  proxCod = 6;
   disciplinas = [
-    new Disciplina(1, 'Língua Portuguesa', 'O objetivo norteador da BNCC de ' +
+    new Disciplina(1, 'Língua Portuguesa','primaria','2017-01-01',true,1, 'O objetivo norteador da BNCC de ' +
       'Língua Portuguesa é garantir a todos os alunos o acesso aos saberes ' +
       'linguísticos necessários para a participação social e o exercício da ' +
       'cidadania, pois é por meio da língua que o ser ' +
       'humano pensa, comunica-se, tem acesso à informação, expressa e ' +
       'defende pontos de vista, partilha ou constrói visões de mundo e ' +
       'produz conhecimento.'),
-    new Disciplina(2, 'Educação Física', 'A Educação Física é o componente ' +
+    new Disciplina(2, 'Educação Física', 'secundaria','2017-01-01',true,1, 'A Educação Física é o componente ' +
       'curricular que tematiza as práticas corporais em suas diversas formas ' +
       'de codificação e significação social, entendidas como manifestações ' +
       'das possibilidades expressivas dos sujeitos e patrimônio cultural ' +
@@ -30,7 +34,7 @@ export class AppComponent {
       'um deslocamento espaço-temporal de um segmento corporal ' +
       'ou de um corpo todo. Logo, as práticas corporais são textos culturais ' +
       'passíveis de leitura e produção.'),
-    new Disciplina(3, 'Inglês', 'Aprender a língua inglesa propicia a criação ' +
+    new Disciplina(3, 'Inglês', 'primaria','2017-01-01',true,1, 'Aprender a língua inglesa propicia a criação ' +
       'de novas formas de engajamento e participação dos alunos em um mundo ' +
       'social cada vez mais globalizado e plural, em que as fronteiras ' +
       'entre países e interesses pessoais, locais, regionais, nacionais ' +
@@ -42,7 +46,7 @@ export class AppComponent {
       'formativo que inscreve a aprendizagem de inglês em uma perspectiva ' +
       'de educação linguística, consciente e crítica, na qual as dimensões ' +
       'pedagógicas e políticas são intrinsecamente ligadas.'),
-    new Disciplina(4, 'Matemática', 'No Ensino Fundamental, essa área, por ' +
+    new Disciplina(4, 'Matemática','primaria','2017-01-01',true,1, 'No Ensino Fundamental, essa área, por ' +
       'meio da articulação de seus diversos campos – Aritmética, Álgebra, ' +
       'Geometria, Estatística e Probabilidade – precisa garantir que os ' +
       'alunos relacionem observações empíricas do mundo real a ' +
@@ -56,7 +60,7 @@ export class AppComponent {
       'algumas propriedades e a verificação de conjecturas, a partir ' +
       'de outras, podem ser estimuladas, sobretudo ao final do ' +
       'Ensino Fundamental.'),
-    new Disciplina(5, 'Ciências', 'Ao estudar Ciências, as pessoas aprendem ' +
+    new Disciplina(5, 'Ciências','primaria','2017-01-01',true,1, 'Ao estudar Ciências, as pessoas aprendem ' +
       'a respeito de si mesmas, da diversidade e dos processos de evolução ' +
       'e manutenção da vida, do mundo material – com os seus recursos ' +
       'naturais, suas transformações e fontes de energia –, do nosso ' +
@@ -68,17 +72,25 @@ export class AppComponent {
 
   salvar() {
     if (this.editando) {
+      this.editando.cod = this.cod;
       this.editando.nome = this.nome;
+      this.editando.tipo = this.tipo;
+      this.editando.data = this.data;
+      this.editando.status = this.status;
       this.editando.descricao = this.descricao;
+      this.cancelar();
     } else {
-      this.cod = this.proxCod +1;
-      const d = new Disciplina(this.proxCod, this.nome, this.descricao);
+      const d = new Disciplina(this.cod, this.nome, this.tipo,this.data, 
+                              this.status,this.periodo, this.descricao);
       this.disciplinas.push(d);
-      this.proxCod = this.proxCod + 1;
     }
+    this.cod = null;
     this.nome = null;
+    this.tipo = null;
+    this.data = null; 
+    this.status = null;
+    this.periodo = null;
     this.descricao = null;
-    this.editando = null;
   }
 
   excluir(disciplina) {
@@ -96,28 +108,35 @@ export class AppComponent {
   editar(disciplina) {
     this.cod = disciplina.cod;
     this.nome = disciplina.nome;
+    this.tipo = disciplina.tipo;
+    this.data = disciplina.data;
+    this.status = disciplina.status;
+    this.periodo = disciplina.periodo;
     this.descricao = disciplina.descricao;
     this.editando = disciplina;
-    this.incluir = true;
   }
 
   cancelar() {
     this.cod = null;
     this.nome = null;
+    this.tipo = null;
+    this.data = null; 
+    this.status = null;
+    this.periodo = null;
     this.descricao = null;
-    this.editando = null;
-    this.incluir = null;
   }
   insert() {
     if(this.incluir) {
       alert('Insira os dados no formulários e salve');
     }
     else {
-      this.incluir = true
-      this.cod = this.proxCod;
+      this.cod = null;
       this.nome = null;
+      this.tipo = null;
+      this.data = null; 
+      this.status = null;
+      this.periodo = null;
       this.descricao = null;
-      this.editando = null;
     }
   }
 }
