@@ -5,9 +5,9 @@ export class Disciplina {
   tipo: string;
   data: string;
   status: boolean;
-  periodo:string;
-  constructor(cod:number, nome: string, tipo:string, data?: string,
-     status?: boolean, periodo?:string, descricao?: string) {
+  periodo: string;
+  constructor(cod: number, nome: string, tipo: string, data?: string,
+     status?: boolean, periodo?: string, descricao?: string) {
     this.cod = cod;
     this.nome = nome;
     this.tipo = tipo;
